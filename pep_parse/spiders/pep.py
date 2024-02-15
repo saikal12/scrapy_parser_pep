@@ -11,7 +11,7 @@ class PepSpider(scrapy.Spider):
         for peps_links in response.css(
                 'a.pep.reference.internal::attr(href)'
         ).getall():
-            yield response.follow(peps_links, callback=self.pep_parser)
+            yield response.follow(peps_links, callback=self.parse_pep)
 
     def parse_pep(self, response):
         string = response.css('h1.page-title::text').get().split(' ')

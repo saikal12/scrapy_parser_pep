@@ -103,7 +103,7 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 FEEDS = {
-    f"results/pep_%(time)s.csv":
+    f"{RESULTS}/pep_%(time)s.csv":
         {
             'format': 'csv',
             'fields': ['number', 'name', 'status'],
