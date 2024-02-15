@@ -1,4 +1,5 @@
 from pathlib import Path
+
 # Scrapy settings for pep_parse project
 #
 # For simplicity, this file contains only settings considered important or
@@ -14,8 +15,7 @@ EXPECTED_STATUS = ('Active', 'Accepted', 'Deferred', 'Final', 'Provisional',
                    )
 
 DATETIME_FORMAT = '%Y-%m-%d_%H-%M-%S'
-BASE_DIR = Path(__file__).parent
-BASE_DIR_TOTAL = Path(__file__).parent.parent
+BASE_DIR = Path(__file__).parent.parent
 RESULTS = 'results'
 
 BOT_NAME = 'pep_parse'
@@ -49,7 +49,8 @@ ROBOTSTXT_OBEY = True
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+#   'Accept':
+#   'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
 #}
 
@@ -78,7 +79,8 @@ ITEM_PIPELINES = {
 }
 
 
-# Enable and configure the AutoThrottle extension (disabled by default)
+# Enable and configure the
+# AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
 # The initial download delay
@@ -92,7 +94,8 @@ ITEM_PIPELINES = {
 #AUTOTHROTTLE_DEBUG = False
 
 # Enable and configure HTTP caching (disabled by default)
-# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
+# See https://docs.scrapy.org/en/latest/topics/
+# downloader-middleware.html#httpcache-middleware-settings
 #HTTPCACHE_ENABLED = True
 #HTTPCACHE_EXPIRATION_SECS = 0
 #HTTPCACHE_DIR = 'httpcache'
@@ -100,11 +103,10 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 FEEDS = {
-    f"{BASE_DIR/RESULTS}/pep_%(time)s.csv":
+    f"results/pep_%(time)s.csv":
         {
             'format': 'csv',
             'fields': ['number', 'name', 'status'],
             'overwrite': True
         }
 }
-

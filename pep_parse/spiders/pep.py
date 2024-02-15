@@ -1,18 +1,19 @@
 import scrapy
-
 from pep_parse.items import PepParseItem
 
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = ['peps.python.org']
-    start_urls = ['http://peps.python.org/']
+    start_urls = ['https://peps.python.org/']
 
     def parse(self, response):
-        for peps_links in response.css('a.pep.reference.internal::attr(href)').getall():
+        for peps_links in response.css(
+                'a.pep.reference.internal::attr(href)'
+        ).getall():
             yield response.follow(peps_links, callback=self.pep_parser)
 
-    def pep_parser(self, response):
+    def parse_pep(self, response):
         string = response.css('h1.page-title::text').get().split(' ')
         data = {
             'number': int(string[1]),
@@ -20,5 +21,3 @@ class PepSpider(scrapy.Spider):
             'status': response.css('dt:contains("Status") + dd ::text').get()
         }
         yield PepParseItem(data)
-
-

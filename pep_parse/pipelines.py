@@ -2,14 +2,15 @@ from collections import defaultdict
 from csv import QUOTE_NONE, unix_dialect, writer
 from datetime import datetime as dt
 
-from pep_parse.settings import BASE_DIR_TOTAL, RESULTS, DATETIME_FORMAT
+from pep_parse.settings import BASE_DIR, RESULTS, DATETIME_FORMAT
 
 FILE_NAME = 'status_summary_{}.csv'
+
 
 class PepParsePipeline():
 
     def __init__(self):
-        self.results = BASE_DIR_TOTAL / RESULTS
+        self.results = BASE_DIR / RESULTS
         self.results.mkdir(exist_ok=True)
         # RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
