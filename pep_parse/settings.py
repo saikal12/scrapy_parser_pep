@@ -9,20 +9,23 @@ from pathlib import Path
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+ALLOWED_DOMAINS = ['peps.python.org']
+
+BASE_DIR = Path(__file__).parent.parent
+
+BOT_NAME = 'pep_parse'
+
+DATETIME_FORMAT = '%Y-%m-%d_%H-%M-%S'
 
 EXPECTED_STATUS = ('Active', 'Accepted', 'Deferred', 'Final', 'Provisional',
                    'Rejected', 'Superseded', 'Withdrawn', 'Draft', 'Active'
                    )
 
-DATETIME_FORMAT = '%Y-%m-%d_%H-%M-%S'
-BASE_DIR = Path(__file__).parent.parent
 RESULTS = 'results'
 
-BOT_NAME = 'pep_parse'
-
-SPIDER_MODULES = ['pep_parse.spiders']
-NEWSPIDER_MODULE = 'pep_parse.spiders'
-
+SPIDER_NAME = 'pep_parse.spiders'
+SPIDER_MODULES = [SPIDER_NAME]
+NEWSPIDER_MODULE = SPIDER_NAME
 
 # Crawl responsibly by
 # identifying yourself (and your website) on the user-agent
