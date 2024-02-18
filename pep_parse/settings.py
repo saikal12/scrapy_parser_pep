@@ -23,9 +23,9 @@ EXPECTED_STATUS = ('Active', 'Accepted', 'Deferred', 'Final', 'Provisional',
 
 RESULTS = 'results'
 
-SPIDER_NAME = 'pep_parse.spiders'
-SPIDER_MODULES = [SPIDER_NAME]
-NEWSPIDER_MODULE = SPIDER_NAME
+NEWSPIDER_MODULE = 'pep_parse.spiders'
+SPIDER_MODULES = [NEWSPIDER_MODULE]
+
 
 # Crawl responsibly by
 # identifying yourself (and your website) on the user-agent
